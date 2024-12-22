@@ -1,0 +1,48 @@
+Reference: https://www.youtube.com/watch?v=1f6xtJpRx4k&list=PLhW3qG5bs-L-y5Q1zDXJAur1JNZVFB534&index=1
+
+Dependencies: 
+  - Karate-apache
+  - Karate-core
+  - Karate-junit4
+  
+Runnerfile:
+  - Run as Junit
+  
+Json File:
+  - created to compare the response  
+  
+CURL for POST call
+curl --location 'https://petstore.swagger.io/v2/user' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "id": 110702,
+  "username": "jii",
+  "firstName": "ishwaya",
+  "lastName": "sekar",
+  "email": "ishujk@gmail.com",
+  "password": "ishujii",
+  "phone": "987654321",
+  "userStatus": 0
+}'
+
+CURL for GET call
+curl --location 'https://petstore.swagger.io/v2/user/jii' \
+--header 'accept: application/json'
+
+CURL for PUT call
+curl --location --request PUT 'https://petstore.swagger.io/v2/user/jii' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--data '{
+  "id": 12344,
+  "username": "ishujii"
+}'
+
+CURL for DELETE call
+curl --location --request DELETE 'https://petstore.swagger.io/v2/user/jii' \
+--header 'accept: application/json'
+  
+  
+We cannot use @KarateOptions in Junit4 since it is deprecated so use Junit5    
+  
